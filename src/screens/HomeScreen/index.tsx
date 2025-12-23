@@ -91,6 +91,10 @@ function HomeScreen(props: Props) {
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Navigation</Text>
           <Button
+            title="Go to Photos"
+            onPress={() => AppNavigation.navigate(ROUTES.PHOTOS.name)}
+          />
+          <Button
             title="Go to Details"
             onPress={() =>
               AppNavigation.navigate(ROUTES.DETAILS.name, { userId: 123 })
