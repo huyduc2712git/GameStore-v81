@@ -11,9 +11,12 @@ import {
   View,
   Alert,
   Image,
+  ScrollView,
+  Keyboard,
 } from 'react-native';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import { gameStore } from '@stores/gameStore';
+import { Images } from '@assets/images';
 
 interface AddPlayerModalProps {
   visible: boolean;
@@ -128,7 +131,7 @@ export const AddPlayerModal = observer(
       <Modal
         visible={visible}
         transparent
-        animationType="fade"
+        animationType="slide"
         onRequestClose={handleClose}
       >
         <TouchableOpacity
@@ -136,12 +139,21 @@ export const AddPlayerModal = observer(
           activeOpacity={1}
           onPress={handleClose}
         >
-          <TouchableOpacity
-            activeOpacity={1}
-            onPress={e => e.stopPropagation()}
-          >
-            <View style={styles.modalContainer}>
-              <Text style={styles.title}>Thêm người chơi</Text>
+          <View style={styles.modalContainer}>
+            {/* Drag Handle */}
+            <TouchableOpacity
+              activeOpacity={1}
+              onPress={() => Keyboard.dismiss()}
+            >
+              <View style={styles.dragHandle} />
+            </TouchableOpacity>
+
+            <ScrollView
+              showsVerticalScrollIndicator={false}
+              bounces={false}
+              keyboardShouldPersistTaps="handled"
+            >
+              <Text style={styles.title}>Add player</Text>
 
               {!gameStore.canAddPlayer && (
                 <View style={styles.warningContainer}>
@@ -170,8 +182,14 @@ export const AddPlayerModal = observer(
                   />
                 ) : (
                   <View style={styles.avatarPlaceholder}>
-                    <Text style={styles.avatarPlaceholderText}>📷</Text>
-                    <Text style={styles.avatarPlaceholderLabel}>Chọn ảnh</Text>
+                    <Image
+                      source={Images.ic_upload_image}
+                      style={styles.uploadIconText}
+                    />
+                    <Text style={styles.uploadText}>
+                      Upload your files here
+                    </Text>
+                    <Text style={styles.browseText}>Browse</Text>
                   </View>
                 )}
               </TouchableOpacity>
@@ -181,6 +199,7 @@ export const AddPlayerModal = observer(
                 placeholder="Nhập tên người chơi"
                 value={playerName}
                 onChangeText={setPlayerName}
+                placeholderTextColor="#565a5a"
                 autoFocus
                 editable={gameStore.canAddPlayer}
               />
@@ -190,6 +209,7 @@ export const AddPlayerModal = observer(
                 placeholder="Mô tả tính cách người chơi (tuỳ chọn)"
                 value={playerDescription}
                 onChangeText={setPlayerDescription}
+                placeholderTextColor="#565a5a"
                 multiline
                 numberOfLines={3}
                 textAlignVertical="top"
@@ -201,7 +221,7 @@ export const AddPlayerModal = observer(
                   style={[styles.button, styles.cancelButton]}
                   onPress={handleClose}
                 >
-                  <Text style={styles.cancelButtonText}>Hủy</Text>
+                  <Text style={styles.cancelButtonText}>Cancel</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
@@ -219,12 +239,12 @@ export const AddPlayerModal = observer(
                       !gameStore.canAddPlayer && styles.disabledButtonText,
                     ]}
                   >
-                    Thêm
+                    Add Player
                   </Text>
                 </TouchableOpacity>
               </View>
-            </View>
-          </TouchableOpacity>
+            </ScrollView>
+          </View>
         </TouchableOpacity>
       </Modal>
     );
@@ -235,30 +255,46 @@ const styles = StyleSheet.create({
   overlay: {
     flex: 1,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: 'flex-end',
   },
   modalContainer: {
     backgroundColor: '#ffffff',
-    borderRadius: moderateScale(16),
-    padding: verticalScale(24),
-    width: moderateScale(320),
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 4,
-    elevation: 5,
+    borderTopLeftRadius: moderateScale(24),
+    borderTopRightRadius: moderateScale(24),
+    paddingHorizontal: verticalScale(24),
+    paddingBottom: verticalScale(24),
+    height: '85%',
+  },
+  uploadIconText: {
+    width: moderateScale(32),
+    height: moderateScale(32),
+    tintColor: '#007AFF',
+  },
+  uploadText: {
+    fontSize: scaleFont(14),
+    color: '#666',
+  },
+  browseText: {
+    fontSize: scaleFont(14),
+    color: '#007AFF',
+    fontWeight: '600',
+  },
+  dragHandle: {
+    width: moderateScale(40),
+    height: moderateScale(4),
+    backgroundColor: '#D1D5DB',
+    borderRadius: moderateScale(2),
+    alignSelf: 'center',
+    marginTop: verticalScale(12),
+    marginBottom: verticalScale(16),
   },
   title: {
-    fontSize: scaleFont(20),
-    fontFamily: FontFamily.bold,
-    fontWeight: FontWeight.bold,
+    fontSize: scaleFont(24),
+    lineHeight: scaleFont(26),
+    fontFamily: FontFamily.fredokaSemiBold,
     color: '#1a1a1a',
-    marginBottom: verticalScale(8),
     textAlign: 'center',
+    marginBottom: verticalScale(6),
   },
   subtitle: {
     fontSize: scaleFont(12),
@@ -269,6 +305,8 @@ const styles = StyleSheet.create({
   },
   warningContainer: {
     backgroundColor: '#FFF3CD',
+    borderWidth: 1,
+    borderColor: '#f59e0b',
     borderRadius: moderateScale(8),
     padding: verticalScale(12),
     marginBottom: verticalScale(16),
@@ -280,26 +318,26 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   avatarContainer: {
-    width: moderateScale(100),
-    height: moderateScale(100),
-    borderRadius: moderateScale(50),
+    width: '100%',
+    height: moderateScale(200),
+    borderRadius: moderateScale(8),
     backgroundColor: '#F8F9FD',
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
     marginBottom: verticalScale(16),
-    borderWidth: 2,
-    borderColor: '#E8ECF4',
-    borderStyle: 'dashed',
+    overflow: 'hidden',
   },
   avatarImage: {
-    width: moderateScale(100),
-    height: moderateScale(100),
-    borderRadius: moderateScale(50),
+    width: '100%',
+    height: moderateScale(200),
+    borderRadius: moderateScale(8),
   },
   avatarPlaceholder: {
     justifyContent: 'center',
     alignItems: 'center',
+    padding: verticalScale(40),
+    gap: verticalScale(12),
   },
   avatarPlaceholderText: {
     fontSize: scaleFont(32),
@@ -340,8 +378,7 @@ const styles = StyleSheet.create({
   },
   cancelButtonText: {
     fontSize: scaleFont(16),
-    fontFamily: FontFamily.medium,
-    fontWeight: FontWeight.medium,
+    fontFamily: FontFamily.fredokaSemiBold,
     color: '#666666',
   },
   addButton: {
@@ -349,8 +386,7 @@ const styles = StyleSheet.create({
   },
   addButtonText: {
     fontSize: scaleFont(16),
-    fontFamily: FontFamily.bold,
-    fontWeight: FontWeight.bold,
+    fontFamily: FontFamily.fredokaSemiBold,
     color: '#ffffff',
   },
   disabledButton: {

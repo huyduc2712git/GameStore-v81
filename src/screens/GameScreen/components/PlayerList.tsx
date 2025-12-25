@@ -35,6 +35,9 @@ export const PlayerList = observer((props: PlayerListProps) => {
     .sort((a, b) => b.score - a.score)
     .slice(0, MAX_PLAYERS); // Limit to max 6 players
 
+  // Check if any player has points
+  const hasAnyPlayerWithPoints = sortedPlayers.some(player => player.score > 0);
+
   if (sortedPlayers.length === 0) {
     return (
       <View style={styles.emptyContainer}>
@@ -89,12 +92,14 @@ export const PlayerList = observer((props: PlayerListProps) => {
               <Text style={styles.avgEarningsText}>{'Avg earnings'}</Text>
               <Text style={styles.scoreText}>{item.score} PTS</Text>
             </View>
-            <TouchableOpacity onPress={() => gameStore.removePlayer(item.id)}>
-              <Image
-                source={Images.ic_delete_image}
-                style={styles.removeButtonImage}
-              />
-            </TouchableOpacity>
+            {!hasAnyPlayerWithPoints && (
+              <TouchableOpacity onPress={() => gameStore.removePlayer(item.id)}>
+                <Image
+                  source={Images.ic_delete_image}
+                  style={styles.removeButtonImage}
+                />
+              </TouchableOpacity>
+            )}
           </View>
         </View>
       </LinearGradient>
@@ -166,10 +171,7 @@ const styles = StyleSheet.create({
     flex: 1,
     borderRadius: moderateScale(16),
     overflow: 'hidden',
-    // backgroundColor: '#121319',
     alignItems: 'center',
-    // padding: verticalScale(6),
-    // gap: verticalScale(12),
   },
   tagRank: {
     borderColor: '#ffffff',

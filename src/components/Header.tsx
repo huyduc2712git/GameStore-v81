@@ -63,8 +63,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: scaleFont(24),
     lineHeight: scaleFont(26),
-    fontFamily: FontFamily.bold,
-    fontWeight: FontWeight.medium,
+    fontFamily: FontFamily.fredokaSemiBold,
     color: '#1a1a1a',
     textAlign: 'center',
     position: 'absolute',

@@ -49,13 +49,13 @@ const styles = StyleSheet.create({
   uploadArea: {
     // marginTop: 20,
     padding: verticalScale(40),
+    gap: verticalScale(12),
     borderWidth: moderateScale(2),
     borderColor: '#007AFF',
     borderStyle: 'dashed',
     borderRadius: moderateScale(12),
     backgroundColor: '#F0F7FF',
     alignItems: 'center',
-    gap: verticalScale(12),
   },
   uploadIcon: {
     width: moderateScale(32),
