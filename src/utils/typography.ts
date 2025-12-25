@@ -18,6 +18,16 @@ export const FontFamily = {
   light: 'TikTokSans-Light',
   // Extra Bold weight
   extraBold: 'TikTokSans-ExtraBold',
+  // Fredoka Bold (Custom)
+  fredokaBold: 'DVN-Fredoka-Bold',
+  // Fredoka Regular (Custom)
+  fredokaRegular: 'Fredoka-Regular',
+  // Fredoka Medium (Custom)
+  fredokaMedium: 'Fredoka-Medium',
+  // Fredoka Light (Custom)
+  fredokaLight: 'Fredoka-Light',
+  // Fredoka SemiBold (Custom)
+  fredokaSemiBold: 'Fredoka-SemiBold',
 };
 
 export const FontWeight = {

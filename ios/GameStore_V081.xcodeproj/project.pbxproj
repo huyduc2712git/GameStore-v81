@@ -11,6 +11,19 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		9CAC6DD32EFD18680093EA64 /* TikTokSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CAC6DD12EFD18680093EA64 /* TikTokSans-Regular.ttf */; };
+		9CAC6DD42EFD18680093EA64 /* DVN-Fredoka-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CAC6DCB2EFD18680093EA64 /* DVN-Fredoka-Bold.ttf */; };
+		9CAC6DD52EFD18680093EA64 /* TikTokSans-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CAC6DCC2EFD18680093EA64 /* TikTokSans-Black.ttf */; };
+		9CAC6DD62EFD18680093EA64 /* TikTokSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CAC6DCF2EFD18680093EA64 /* TikTokSans-Light.ttf */; };
+		9CAC6DD72EFD18680093EA64 /* TikTokSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CAC6DCD2EFD18680093EA64 /* TikTokSans-Bold.ttf */; };
+		9CAC6DD82EFD18680093EA64 /* TikTokSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CAC6DCE2EFD18680093EA64 /* TikTokSans-ExtraBold.ttf */; };
+		9CAC6DD92EFD18680093EA64 /* TikTokSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CAC6DD22EFD18680093EA64 /* TikTokSans-SemiBold.ttf */; };
+		9CAC6DDA2EFD18680093EA64 /* TikTokSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CAC6DD02EFD18680093EA64 /* TikTokSans-Medium.ttf */; };
+		9CAC6DE02EFD24E50093EA64 /* Fredoka-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CAC6DDF2EFD24E50093EA64 /* Fredoka-SemiBold.ttf */; };
+		9CAC6DE12EFD24E50093EA64 /* Fredoka-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CAC6DDC2EFD24E50093EA64 /* Fredoka-Light.ttf */; };
+		9CAC6DE22EFD24E50093EA64 /* Fredoka-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CAC6DDB2EFD24E50093EA64 /* Fredoka-Bold.ttf */; };
+		9CAC6DE32EFD24E50093EA64 /* Fredoka-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CAC6DDD2EFD24E50093EA64 /* Fredoka-Medium.ttf */; };
+		9CAC6DE42EFD24E50093EA64 /* Fredoka-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CAC6DDE2EFD24E50093EA64 /* Fredoka-Regular.ttf */; };
 		C11C44A436BFE23F75876F07 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +37,19 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-GameStore_V081.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GameStore_V081.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = GameStore_V081/AppDelegate.swift; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = GameStore_V081/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9CAC6DCB2EFD18680093EA64 /* DVN-Fredoka-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DVN-Fredoka-Bold.ttf"; sourceTree = "<group>"; };
+		9CAC6DCC2EFD18680093EA64 /* TikTokSans-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TikTokSans-Black.ttf"; sourceTree = "<group>"; };
+		9CAC6DCD2EFD18680093EA64 /* TikTokSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TikTokSans-Bold.ttf"; sourceTree = "<group>"; };
+		9CAC6DCE2EFD18680093EA64 /* TikTokSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TikTokSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		9CAC6DCF2EFD18680093EA64 /* TikTokSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TikTokSans-Light.ttf"; sourceTree = "<group>"; };
+		9CAC6DD02EFD18680093EA64 /* TikTokSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TikTokSans-Medium.ttf"; sourceTree = "<group>"; };
+		9CAC6DD12EFD18680093EA64 /* TikTokSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TikTokSans-Regular.ttf"; sourceTree = "<group>"; };
+		9CAC6DD22EFD18680093EA64 /* TikTokSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TikTokSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		9CAC6DDB2EFD24E50093EA64 /* Fredoka-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fredoka-Bold.ttf"; sourceTree = "<group>"; };
+		9CAC6DDC2EFD24E50093EA64 /* Fredoka-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fredoka-Light.ttf"; sourceTree = "<group>"; };
+		9CAC6DDD2EFD24E50093EA64 /* Fredoka-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fredoka-Medium.ttf"; sourceTree = "<group>"; };
+		9CAC6DDE2EFD24E50093EA64 /* Fredoka-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fredoka-Regular.ttf"; sourceTree = "<group>"; };
+		9CAC6DDF2EFD24E50093EA64 /* Fredoka-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Fredoka-SemiBold.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -42,6 +68,19 @@
 		13B07FAE1A68108700A75B9A /* GameStore_V081 */ = {
 			isa = PBXGroup;
 			children = (
+				9CAC6DDB2EFD24E50093EA64 /* Fredoka-Bold.ttf */,
+				9CAC6DDC2EFD24E50093EA64 /* Fredoka-Light.ttf */,
+				9CAC6DDD2EFD24E50093EA64 /* Fredoka-Medium.ttf */,
+				9CAC6DDE2EFD24E50093EA64 /* Fredoka-Regular.ttf */,
+				9CAC6DDF2EFD24E50093EA64 /* Fredoka-SemiBold.ttf */,
+				9CAC6DCB2EFD18680093EA64 /* DVN-Fredoka-Bold.ttf */,
+				9CAC6DCC2EFD18680093EA64 /* TikTokSans-Black.ttf */,
+				9CAC6DCD2EFD18680093EA64 /* TikTokSans-Bold.ttf */,
+				9CAC6DCE2EFD18680093EA64 /* TikTokSans-ExtraBold.ttf */,
+				9CAC6DCF2EFD18680093EA64 /* TikTokSans-Light.ttf */,
+				9CAC6DD02EFD18680093EA64 /* TikTokSans-Medium.ttf */,
+				9CAC6DD12EFD18680093EA64 /* TikTokSans-Regular.ttf */,
+				9CAC6DD22EFD18680093EA64 /* TikTokSans-SemiBold.ttf */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				761780EC2CA45674006654EE /* AppDelegate.swift */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
@@ -159,6 +198,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				9CAC6DD32EFD18680093EA64 /* TikTokSans-Regular.ttf in Resources */,
+				9CAC6DD42EFD18680093EA64 /* DVN-Fredoka-Bold.ttf in Resources */,
+				9CAC6DD52EFD18680093EA64 /* TikTokSans-Black.ttf in Resources */,
+				9CAC6DD62EFD18680093EA64 /* TikTokSans-Light.ttf in Resources */,
+				9CAC6DD72EFD18680093EA64 /* TikTokSans-Bold.ttf in Resources */,
+				9CAC6DE02EFD24E50093EA64 /* Fredoka-SemiBold.ttf in Resources */,
+				9CAC6DE12EFD24E50093EA64 /* Fredoka-Light.ttf in Resources */,
+				9CAC6DE22EFD24E50093EA64 /* Fredoka-Bold.ttf in Resources */,
+				9CAC6DE32EFD24E50093EA64 /* Fredoka-Medium.ttf in Resources */,
+				9CAC6DE42EFD24E50093EA64 /* Fredoka-Regular.ttf in Resources */,
+				9CAC6DD82EFD18680093EA64 /* TikTokSans-ExtraBold.ttf in Resources */,
+				9CAC6DD92EFD18680093EA64 /* TikTokSans-SemiBold.ttf in Resources */,
+				9CAC6DDA2EFD18680093EA64 /* TikTokSans-Medium.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				C11C44A436BFE23F75876F07 /* PrivacyInfo.xcprivacy in Resources */,
 			);

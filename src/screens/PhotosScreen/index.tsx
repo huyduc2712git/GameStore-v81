@@ -1,24 +1,14 @@
-import { AppNavigation } from '@navigation/AppNavigation';
 import React from 'react';
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import {
-  SafeAreaView,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+import { ScrollView, StyleSheet, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { EmptyState } from './components/EmptyState';
 import { LoadingState } from './components/LoadingState';
 import { PhotosList } from './components/PhotosList';
 import { PreviewModal } from './components/PreviewModal';
 import { UploadArea } from './components/UploadArea';
 import { usePhotos } from './hooks/usePhotos';
-import { FontFamily } from '@utils/typography';
 import { verticalScale } from '@utils/scale';
+import Header from '@components/Header';
 
 interface Props {}
 
@@ -59,17 +49,7 @@ function PhotosScreen(props: Props) {
 
   return (
     <View style={[styles.container, { paddingTop: insets.top }]}>
-      {/* Header */}
-      <View style={styles.header}>
-        <TouchableOpacity onPress={() => AppNavigation.goBack()}>
-          <Text style={styles.backButton}>←</Text>
-        </TouchableOpacity>
-        <Text style={[styles.headerTitle]}>Photos</Text>
-        <View style={styles.profileIcon}>
-          <Text style={styles.profileText}>👤</Text>
-        </View>
-      </View>
-
+      <Header title="Photos" />
       <ScrollView style={styles.content}>
         <UploadArea
           onPress={handlePickAndUpload}
@@ -127,17 +107,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontFamily: 'TikTokSans-Bold',
     color: '#1a1a1a',
-  },
-  profileIcon: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: '#E8ECF4',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  profileText: {
-    fontSize: 18,
   },
   content: {
     flex: 1,

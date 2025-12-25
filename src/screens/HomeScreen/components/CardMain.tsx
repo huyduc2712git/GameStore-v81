@@ -1,18 +1,36 @@
-import { Images } from '@assets/images';
 import { moderateScale, scaleFont, verticalScale } from '@utils/scale';
 import { FontFamily, FontWeight } from '@utils/typography';
-import { Button, Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import {
+  Button,
+  Image,
+  ImageSourcePropType,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import { AppNavigation } from '@navigation/AppNavigation';
-import { ROUTES } from '@navigation/routes';
 
-function CardMain() {
-  const onPressPlayPhoto = () => {
-    AppNavigation.navigate(ROUTES.PHOTOS.name);
-  };
+interface Props {
+  colors: string[];
+  title: string;
+  description: string;
+  onPress: () => void;
+  image: ImageSourcePropType | undefined;
+}
+
+function CardMain(props: Props) {
+  const {
+    colors = ['#d75fe1', '#4a4ae2'],
+    title,
+    description,
+    onPress,
+    image,
+  } = props;
+
   return (
     <LinearGradient
-      colors={['#d75fe1', '#4a4ae2']}
+      colors={colors}
       start={{ x: 0, y: 0 }}
       end={{ x: 1.4, y: 0 }}
       style={{
@@ -21,16 +39,14 @@ function CardMain() {
     >
       <View style={styles.container}>
         <View style={styles.contentLeft}>
-          <Text style={styles.title}>Photos</Text>
-          <Text style={styles.description}>
-            Phụ vụ upload ảnh và xem ảnh, chúc các bạn trải nghiệm thú vị
-          </Text>
-          <Pressable style={styles.button} onPress={onPressPlayPhoto}>
-            <Text style={styles.buttonText}>Play Photo</Text>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.description}>{description}</Text>
+          <Pressable style={styles.button} onPress={onPress}>
+            <Text style={styles.buttonText}>{'Know More'}</Text>
           </Pressable>
         </View>
         <View>
-          <Image source={Images.bg_card_photo} style={styles.imageCard} />
+          <Image source={image} style={styles.imageCard} />
         </View>
       </View>
     </LinearGradient>
@@ -45,6 +61,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: verticalScale(12),
+    gap: verticalScale(12),
   },
   contentLeft: {
     flex: 1,
@@ -56,14 +73,14 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: scaleFont(20),
-    fontFamily: FontFamily.bold,
-    fontWeight: FontWeight.bold,
+    lineHeight: scaleFont(24),
+    fontFamily: FontFamily.fredokaSemiBold,
     color: '#fff',
   },
   description: {
     fontSize: scaleFont(14),
-    fontFamily: FontFamily.regular,
-    fontWeight: FontWeight.light,
+    lineHeight: scaleFont(18),
+    fontFamily: FontFamily.medium,
     color: '#fff',
     flexWrap: 'wrap',
   },
@@ -74,9 +91,9 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-start',
   },
   buttonText: {
-    fontSize: scaleFont(14),
-    fontFamily: FontFamily.bold,
-    fontWeight: FontWeight.bold,
+    fontSize: scaleFont(16),
+    lineHeight: scaleFont(18),
+    fontFamily: FontFamily.fredokaSemiBold,
     color: '#515dae',
   },
 });

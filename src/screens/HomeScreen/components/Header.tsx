@@ -42,13 +42,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: scaleFont(22),
-    fontFamily: FontFamily.bold,
-    fontWeight: FontWeight.bold,
+    fontFamily: FontFamily.fredokaSemiBold,
   },
   description: {
     fontSize: scaleFont(16),
-    fontFamily: FontFamily.regular,
-    fontWeight: FontWeight.regular,
+    fontFamily: FontFamily.medium,
     color: '#808080',
   },
   profileImage: {
