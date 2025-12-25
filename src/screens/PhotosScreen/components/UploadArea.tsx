@@ -1,6 +1,9 @@
+import { Images } from '@assets/images';
+import { moderateScale, verticalScale } from '@utils/scale';
 import React from 'react';
 import {
   ActivityIndicator,
+  Image,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -27,9 +30,7 @@ export const UploadArea: React.FC<Props> = ({
         onPress={onPress}
         disabled={disabled}
       >
-        <View style={styles.uploadIcon}>
-          <Text style={styles.uploadIconText}>📤</Text>
-        </View>
+        <Image source={Images.ic_upload_image} style={styles.uploadIconText} />
         <Text style={styles.uploadText}>Upload your files here</Text>
         <Text style={styles.browseText}>Browse</Text>
       </TouchableOpacity>
@@ -46,26 +47,26 @@ export const UploadArea: React.FC<Props> = ({
 
 const styles = StyleSheet.create({
   uploadArea: {
-    marginTop: 20,
-    padding: 40,
-    borderWidth: 2,
+    // marginTop: 20,
+    padding: verticalScale(40),
+    borderWidth: moderateScale(2),
     borderColor: '#007AFF',
     borderStyle: 'dashed',
-    borderRadius: 12,
+    borderRadius: moderateScale(12),
     backgroundColor: '#F0F7FF',
     alignItems: 'center',
-    gap: 12,
+    gap: verticalScale(12),
   },
   uploadIcon: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    backgroundColor: '#E3F2FF',
+    width: moderateScale(32),
+    height: moderateScale(32),
     justifyContent: 'center',
     alignItems: 'center',
   },
   uploadIconText: {
-    fontSize: 28,
+    width: moderateScale(32),
+    height: moderateScale(32),
+    tintColor: '#007AFF',
   },
   uploadText: {
     fontSize: 14,

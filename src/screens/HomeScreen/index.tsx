@@ -1,6 +1,8 @@
 import { AppNavigation } from '@navigation/AppNavigation';
 import { ROUTES } from '@navigation/routes';
 import { SupabaseService } from '@services/supabase.service';
+import { scaleFont, verticalScale } from '@utils/scale';
+import { FontFamily, FontWeight } from '@utils/typography';
 import { useState } from 'react';
 import {
   ActivityIndicator,
@@ -11,103 +13,32 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import {
+  SafeAreaView,
+  useSafeAreaInsets,
+} from 'react-native-safe-area-context';
+import Header from './components/Header';
+import SectionCard from './components/SectionCard';
 
 interface Props {}
 
 function HomeScreen(props: Props) {
-  const [isTestingConnection, setIsTestingConnection] = useState(false);
-  const [connectionStatus, setConnectionStatus] = useState<string | null>(null);
-
-  const handleTestConnection = async () => {
-    setIsTestingConnection(true);
-    setConnectionStatus('Testing connection...');
-
-    try {
-      const result = await SupabaseService.testConnection();
-      setConnectionStatus(result.message);
-
-      if (result.success) {
-        Alert.alert('Success', result.message);
-      } else {
-        Alert.alert('Error', result.message);
-      }
-    } catch (error) {
-      const errorMessage = `Connection test failed: ${error}`;
-      setConnectionStatus(errorMessage);
-      Alert.alert('Error', errorMessage);
-    } finally {
-      setIsTestingConnection(false);
-    }
-  };
-
-  const handleSignOut = async () => {
-    try {
-      const result = await SupabaseService.signOut();
-      if (result.success) {
-        Alert.alert('Success', result.message, [
-          {
-            text: 'OK',
-            onPress: () => {
-              AppNavigation.navigate(ROUTES.LOGIN.name);
-            },
-          },
-        ]);
-      } else {
-        Alert.alert('Error', result.message);
-      }
-    } catch (error) {
-      Alert.alert('Error', `Sign out failed: ${error}`);
-    }
-  };
+  const insets = useSafeAreaInsets();
 
   return (
-    <SafeAreaView style={$container}>
-      <View style={styles.content}>
-        <Text style={styles.title}>GameStore Home</Text>
-
+    <View style={$container}>
+      <View style={[styles.content, { marginTop: insets.top }]}>
+        <Header />
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Supabase Integration</Text>
-
-          <Button
-            title="Test Supabase Connection"
-            onPress={handleTestConnection}
-            disabled={isTestingConnection}
-          />
-
-          {isTestingConnection && (
-            <ActivityIndicator
-              size="small"
-              color="#0000ff"
-              style={styles.loader}
-            />
-          )}
-
-          {connectionStatus && (
-            <Text style={styles.status}>{connectionStatus}</Text>
-          )}
+          <SectionCard />
         </View>
 
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Navigation</Text>
-          <Button
-            title="Go to Photos"
-            onPress={() => AppNavigation.navigate(ROUTES.PHOTOS.name)}
-          />
-          <Button
-            title="Go to Details"
-            onPress={() =>
-              AppNavigation.navigate(ROUTES.DETAILS.name, { userId: 123 })
-            }
-          />
-        </View>
-
-        <View style={styles.section}>
+        {/* <View style={styles.section}>
           <Text style={styles.sectionTitle}>Account</Text>
           <Button title="Sign Out" onPress={handleSignOut} color="#ff3b30" />
-        </View>
+        </View> */}
       </View>
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -120,18 +51,20 @@ const $container: ViewStyle = {
 const styles = StyleSheet.create({
   content: {
     flex: 1,
-    padding: 20,
-    gap: 20,
+    paddingHorizontal: verticalScale(16),
+    gap: verticalScale(16),
   },
   title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 20,
+    fontSize: scaleFont(20),
+    fontFamily: FontFamily.bold,
+    fontWeight: FontWeight.bold,
   },
-  section: {
-    gap: 10,
+  description: {
+    fontSize: scaleFont(14),
+    fontFamily: FontFamily.regular,
+    fontWeight: FontWeight.regular,
   },
+  section: {},
   sectionTitle: {
     fontSize: 18,
     fontWeight: '600',

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import type { Photo } from '../hooks/usePhotos';
+import { Images } from '@assets/images';
+import { moderateScale, scale, scaleFont, verticalScale } from '@utils/scale';
 
 interface Props {
   photo: Photo;
@@ -29,8 +31,8 @@ export const PhotoItem: React.FC<Props> = ({
         <Text style={styles.fileSize}>{formatFileSize(photo.file_size)}</Text>
         <Text style={styles.fileDate}>{formatDate(photo.uploaded_at)}</Text>
       </View>
-      <TouchableOpacity style={styles.deleteButton} onPress={onDelete}>
-        <Text style={styles.deleteIcon}>🗑️</Text>
+      <TouchableOpacity onPress={onDelete}>
+        <Image source={Images.ic_delete_image} style={styles.deleteIcon} />
       </TouchableOpacity>
     </View>
   );
@@ -40,10 +42,12 @@ const styles = StyleSheet.create({
   fileItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 12,
+    justifyContent: 'space-between',
+    padding: verticalScale(12),
     backgroundColor: '#ffffff',
-    borderRadius: 12,
-    marginBottom: 12,
+    borderRadius: moderateScale(12),
+    marginBottom: verticalScale(8),
+    gap: scale(8),
   },
   fileThumbnail: {
     width: 48,
@@ -53,26 +57,23 @@ const styles = StyleSheet.create({
   },
   fileInfo: {
     flex: 1,
-    marginLeft: 12,
+    gap: scale(4),
   },
   fileName: {
-    fontSize: 14,
+    fontSize: scaleFont(14),
     fontWeight: '600',
     color: '#1a1a1a',
-    marginBottom: 2,
   },
   fileSize: {
-    fontSize: 12,
+    fontSize: scaleFont(12),
     color: '#999',
   },
   fileDate: {
-    fontSize: 12,
+    fontSize: scaleFont(12),
     color: '#999',
   },
-  deleteButton: {
-    padding: 8,
-  },
   deleteIcon: {
-    fontSize: 18,
+    width: moderateScale(32),
+    height: moderateScale(32),
   },
 });

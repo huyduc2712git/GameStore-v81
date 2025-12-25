@@ -7,13 +7,18 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import {
+  SafeAreaView,
+  useSafeAreaInsets,
+} from 'react-native-safe-area-context';
 import { EmptyState } from './components/EmptyState';
 import { LoadingState } from './components/LoadingState';
 import { PhotosList } from './components/PhotosList';
 import { PreviewModal } from './components/PreviewModal';
 import { UploadArea } from './components/UploadArea';
 import { usePhotos } from './hooks/usePhotos';
+import { FontFamily } from '@utils/typography';
+import { verticalScale } from '@utils/scale';
 
 interface Props {}
 
@@ -29,6 +34,8 @@ function PhotosScreen(props: Props) {
     openPreview,
     closePreview,
   } = usePhotos();
+
+  const insets = useSafeAreaInsets();
 
   const formatFileSize = (bytes: number | null): string => {
     if (!bytes || bytes === 0) return '0 KB';
@@ -51,13 +58,13 @@ function PhotosScreen(props: Props) {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={[styles.container, { paddingTop: insets.top }]}>
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => AppNavigation.goBack()}>
           <Text style={styles.backButton}>←</Text>
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Your Files</Text>
+        <Text style={[styles.headerTitle]}>Photos</Text>
         <View style={styles.profileIcon}>
           <Text style={styles.profileText}>👤</Text>
         </View>
@@ -91,7 +98,7 @@ function PhotosScreen(props: Props) {
         onClose={closePreview}
         formatFileSize={formatFileSize}
       />
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -100,7 +107,7 @@ export default PhotosScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F9FD',
+    backgroundColor: '#ffffff',
   },
   header: {
     flexDirection: 'row',
@@ -118,7 +125,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontSize: 18,
-    fontWeight: '600',
+    fontFamily: 'TikTokSans-Bold',
     color: '#1a1a1a',
   },
   profileIcon: {
@@ -134,6 +141,7 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
-    paddingHorizontal: 20,
+    padding: verticalScale(16),
+    backgroundColor: '#F8F9FD',
   },
 });

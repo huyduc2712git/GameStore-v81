@@ -35,26 +35,18 @@ export const PreviewModal: React.FC<Props> = ({
         >
           <View style={styles.modalContent}>
             {photo && (
-              <>
-                <Image
-                  source={{ uri: photo.file_url }}
-                  style={styles.fullscreenImage}
-                  resizeMode="contain"
-                />
-                {/* <View style={styles.modalInfo}>
-                  <Text style={styles.modalFileName}>{photo.file_name}</Text>
-                  <Text style={styles.modalFileSize}>
-                    {formatFileSize(photo.file_size)}
-                  </Text>
-                </View> */}
-              </>
+              <Image
+                source={{ uri: photo.file_url }}
+                style={styles.fullscreenImage}
+                resizeMode="contain"
+              />
             )}
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.closeButton} onPress={onClose}>
+        {/* <TouchableOpacity style={styles.closeButton} onPress={onClose}>
           <Text style={styles.closeButtonText}>✕</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </Modal>
   );
@@ -76,10 +68,11 @@ const styles = StyleSheet.create({
   modalContent: {
     width: '100%',
     alignItems: 'center',
+    justifyContent: 'center',
   },
   fullscreenImage: {
     width: '100%',
-    height: '80%',
+    height: '100%',
   },
   modalInfo: {
     marginTop: 20,

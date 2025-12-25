@@ -53,5 +53,15 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>TikTokSans-Regular.ttf</string>
+		<string>TikTokSans-Medium.ttf</string>
+		<string>TikTokSans-SemiBold.ttf</string>
+		<string>TikTokSans-Bold.ttf</string>
+		<string>TikTokSans-Light.ttf</string>
+		<string>TikTokSans-ExtraBold.ttf</string>
+		<string>TikTokSans-Black.ttf</string>
+	</array>
 </dict>
 </plist>
